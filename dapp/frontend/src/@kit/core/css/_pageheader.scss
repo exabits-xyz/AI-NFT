@@ -1,0 +1,103 @@
+/*============ Page Header  css start here ==============*/
+.page-header-section {
+    background-image: url(/resources/images/banner/page-banner.jpeg);
+    background-size: cover;
+
+    &.style-1 {
+        @extend %p-0;
+        @extend %m-0;
+        @extend %of-hidden;
+        border: none;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        @extend %text-center;
+
+        @include breakpoint(lg) {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        .page-header-content {
+            .page-header-inner {
+                .page-title {
+                    @extend %mb-20;
+
+                    h2 {
+                        font-weight: 600;
+                    }
+                }
+
+                .breadcrumb {
+                    @extend %pt-0;
+                    @extend %pl-0;
+                    @extend %justify-center;
+                    background-color: transparent;
+                    li {
+                        // color: $white;
+                        margin: 0 5px;
+                        text-transform: capitalize;
+                        font-size: 18px;
+
+                        &.active {
+                            @extend %text-regular;
+                            @extend %ml-10;
+                        }
+
+                        a {
+                            color: $title-color;
+                            @extend %text-bold;
+                            @extend %p-rel;
+                            padding: 0 5px;
+                            outline: none;
+                            @include transition($transition);
+
+                            &:hover {
+                                color: $theme-color;
+                            }
+
+                            &::before {
+                                background: $desc-color;
+                                @extend %p-abs;
+                                width: 8px;
+                                height: 1px;
+                                transform: translateY(-50%);
+                                top: 50%;
+                                right: -10px;
+                                @include transition($transition);
+                            }
+                        }
+
+                        &:first-child {
+                            margin-left: 0;
+                        }
+                    }
+                }
+
+                .page-title {
+                    .title-text {
+                        font-size: $fs-h4;
+                        color: $white;
+                        text-transform: capitalize;
+                        @extend %text-bold;
+
+                        @include breakpoint(md) {
+                            font-size: 3.5rem;
+                            line-height: 4.125rem;
+                        }
+
+                        span {
+                            color: $theme-color;
+                        }
+                    }
+
+                    p {
+                        color: $white;
+                        font-size: $fs-h6;
+                        text-transform: capitalize;
+                        @extend %mb-0;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,22 @@
+.animate {
+    &-info {
+        &-y {
+            @for $i from 1 through 50 {
+                &:nth-child(#{$i}) {
+                    z-index: #{50 - $i};
+                    opacity: 0;
+                    transform: translateY(50px);
+                    animation: 0.4s intro-y-animation ease-in-out 0.33333s;
+                    animation-fill-mode: forwards;
+                    animation-delay: #{$i * 0.1}s;
+                }
+            }
+        }
+    }
+}
+@keyframes intro-y-animation {
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

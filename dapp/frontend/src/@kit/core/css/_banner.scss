@@ -1,0 +1,312 @@
+.banner-section {
+    @extend %p-rel;
+    @extend %of-hidden;
+    background-size: cover;
+    background-position: center;
+
+    &.style-1 {
+        .banner-wrapper {
+            @extend %p-rel;
+            z-index: 1;
+            padding-top: 120px;
+            padding-bottom: 120px;
+
+            @include breakpoint(lg) {
+                padding-top: 200px;
+                padding-bottom: 200px;
+            }
+
+            .banner-content {
+                > p {
+                    @include breakpoint(md) {
+                        @include breakpoint(max-lg) {
+                            max-inline-size: 35ch;
+                            margin: auto auto 45px;
+                        }
+                    }
+
+                    margin-bottom: 45px;
+                }
+            }
+        }
+    }
+}
+
+.banner-content {
+    .search-bar {
+        margin: auto;
+        max-inline-size: 700px;
+
+        input {
+            padding: 1rem 2rem;
+            border: 2px solid rgba($theme-color, $alpha: 0.2);
+        }
+
+        button {
+            @include breakpoint(lg) {
+                padding: 1rem 2.5rem;
+            }
+        }
+    }
+
+    h2 {
+        @extend %mb-20;
+        font-weight: 800;
+    }
+
+    p {
+        font-size: 18px;
+        font-weight: 700;
+        color: $title-color;
+    }
+
+    .banner-btns {
+        gap: 30px;
+    }
+}
+
+//default button style
+.default-btn {
+    @extend %p-rel;
+    @extend %d-inline-block;
+    @extend %of-hidden;
+    text-decoration: none;
+    color: $white;
+    padding: 0 1.7rem;
+    line-height: 40px;
+    border-radius: 4px;
+    font-size: 16px;
+    transform-origin: right;
+    transition: $transition;
+    background: $gradient-blue;
+    font-weight: bold;
+
+    @include breakpoint(md) {
+        padding: 0 2.25rem;
+        line-height: 50px;
+    }
+
+    span {
+        position: inherit;
+        z-index: 1;
+    }
+
+    &.small-btn {
+        padding: 0 1rem;
+        line-height: 40px;
+        font-size: 14px;
+    }
+
+    &.move-right {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-orange;
+            transition: transform 0.5s;
+            transform-origin: right;
+            transform: scaleX(0);
+            z-index: 0;
+        }
+
+        &:hover {
+            &:before {
+                transform: scaleX(1);
+                transform-origin: left;
+                transition: transform 0.5s;
+            }
+        }
+    }
+
+    &.move-left {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-orange;
+            transition: transform 0.5s;
+            transform-origin: left;
+            transform: scaleX(0);
+            z-index: 0;
+        }
+
+        &:hover {
+            &:before {
+                transform: scaleX(1);
+                transform-origin: right;
+                transition: transform 0.5s;
+            }
+        }
+    }
+
+    &.move-bottom {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-orange;
+            transition: transform 0.5s;
+            transform-origin: bottom;
+            transform: scaleY(0);
+            z-index: 0;
+        }
+
+        &:hover {
+            &:before {
+                transform: scaleY(1);
+                transform-origin: top;
+                transition: transform 0.5s;
+            }
+        }
+    }
+
+    &.move-top {
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: $gradient-orange;
+            transition: transform 0.5s;
+            transform-origin: top;
+            transform: scaleY(0);
+            z-index: 0;
+        }
+
+        &:hover {
+            &:before {
+                transform: scaleY(1);
+                transform-origin: bottom;
+                transition: transform 0.5s;
+            }
+        }
+    }
+
+    &.style-2 {
+        background: $gradient-orange;
+        color: $white;
+        border-radius: 4px;
+    }
+
+    &:hover {
+        color: $body;
+    }
+}
+
+.nft-item {
+    @extend %p-rel;
+    transition: $transition;
+    border-radius: 10px;
+    @extend %of-hidden;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 5px 10px rgba($black, $alpha: 0.15);
+    }
+
+    .nft-inner {
+        background: $white;
+        box-shadow: $d-box-shadow;
+        transition: $transition;
+        border: 1px solid rgba($white, $alpha: 0.05);
+    }
+    .nft-content {
+        .content-title {
+            padding: 15px;
+            h5 {
+                a {
+                    font-size: 20px;
+                }
+            }
+            p {
+                min-height: 66px;
+                color: #6f7d95;
+                font-size: 14px;
+                line-height: 22px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+    .nft-item-bottom .nft-content .price-like {
+        padding: 15px;
+        border-top: 1px solid #f5f5f5;
+    }
+    .nft-item-bottom {
+        .nft-thumb {
+            position: relative;
+            padding-inline: 15px;
+            margin: 15px 0px;
+            img {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+    }
+    .nft-price {
+        .currency-img {
+            margin-right: 10px;
+            border: 50%;
+        }
+        i {
+            font-family: "Manrope", sans-serif;
+            font-style: normal;
+            font-size: 14px;
+            font-weight: 700;
+        }
+        p {
+            color: #6f7d95;
+        }
+    }
+    &:hover {
+        border-color: rgba($white, $alpha: 0.5);
+    }
+    .nft-bid {
+        @extend %d-inline-block;
+        background-image: $gradient-blue;
+        color: $white;
+        font-size: 14px;
+        line-height: 24px;
+        padding-inline: 2rem;
+        border-radius: 99px;
+        font-weight: 700;
+
+        @include breakpoint(md) {
+            padding-inline: 2rem;
+        }
+
+        &:hover {
+            background-image: $gradient-blue-reverse;
+        }
+    }
+    p {
+        margin: 0px;
+        padding: 0px;
+    }
+}
+
+.section-header {
+    gap: 15px;
+    padding-block: 10px;
+    margin-top: 2rem;
+    text-align: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+.nft-sell-wrapper .row > * {
+    margin-top: 1.5rem;
+}

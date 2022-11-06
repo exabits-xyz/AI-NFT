@@ -1,0 +1,88 @@
+@import "@/mixins.scss";
+
+.container {
+    width: 100%;
+    // min-height: 100vh;
+    display: flex;
+    // flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+
+    &.white {
+        background: $white;
+    }
+
+    &.gray {
+        background: $gray-1;
+    }
+}
+
+.containerInner {
+    width: 100%;
+}
+
+.footerNav {
+    li {
+        margin: rem(5) rem(14);
+    }
+}
+
+.logo {
+    display: block;
+    padding: rem(15) rem(20);
+    line-height: 1;
+    height: rem(64);
+    white-space: nowrap;
+
+    .letter {
+        float: left;
+        display: flex;
+        width: 35px;
+        height: 35px;
+        border-radius: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.35714rem;
+        font-weight: 700;
+        font-size: 1.5rem;
+        color: $black;
+        border: 4px solid $black;
+        padding-bottom: rem(2);
+    }
+    .name {
+        font-weight: 900;
+        color: $black;
+        font-size: 21px;
+        margin-left: rem(40);
+    }
+    .descr {
+        color: $gray-6;
+        margin-left: rem(40);
+        font-size: 12px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+    }
+}
+
+// dark theme
+[data-kit-theme="dark"] {
+    .container {
+        background: transparent !important;
+    }
+
+    .logo {
+        .letter {
+            color: $white;
+            border-color: $white;
+        }
+        .name {
+            color: $white;
+        }
+        .descr {
+            color: $dark-gray-1;
+        }
+    }
+}

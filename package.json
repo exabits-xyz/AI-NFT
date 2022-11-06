@@ -1,0 +1,30 @@
+{
+    "name": "exabits-ai-nft",
+    "version": "1.0.0",
+    "description": "ai nft dapp",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [
+        "web3.0",
+        "ai",
+        "exaBITS",
+        "art"
+    ],
+    "author": "exaBITS.xyz",
+    "license": "MIT",
+    "dependencies": {
+        "@openzeppelin/contracts": "^4.5.0"
+    },
+    "devDependencies": {
+        "@nomiclabs/hardhat-ethers": "^2.1.1",
+        "@nomiclabs/hardhat-waffle": "^2.0.3",
+        "axios": "^0.27.2",
+        "chai": "^4.3.6",
+        "ethereum-waffle": "^3.4.4",
+        "ethers": "^5.7.0",
+        "hardhat": "^2.10.2",
+        "web3modal": "^1.9.8"
+    }
+}

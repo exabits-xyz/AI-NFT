@@ -1,0 +1,25 @@
+@import "src/mixins.scss";
+
+:root {
+    --kit-color-primary: #8e54e9;
+    --kit-font-family: Manrope, "Open Sans", sans-serif, Arial, Helvetica,
+        sans-serif;
+}
+
+html {
+    font-size: 12px;
+    @media (max-width: $sm-max-width) {
+        font-size: 12px;
+    }
+}
+
+body {
+    font-family: $base-font-family;
+}
+
+// dark theme
+[data-kit-theme="dark"] {
+    body {
+        background: darken($dark-gray-5, 3%);
+    }
+}

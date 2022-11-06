@@ -1,0 +1,38 @@
+@import "@/mixins.scss";
+
+.footer {
+    max-width: rem(1280);
+    margin: 0 auto;
+    padding: 0 rem(30);
+    color: $text;
+
+    @media (max-width: $sm-max-width) {
+        padding: 0 rem(16) !important;
+    }
+}
+
+.footerFullWidth {
+    max-width: none;
+}
+
+.inner {
+    border-top: 1px solid $border;
+    padding: rem(20) 0;
+    p {
+        line-height: 20px;
+        font-size: 12px;
+        padding: 0px 10px;
+        margin: 0px;
+    }
+}
+
+// dark theme
+[data-kit-theme="dark"] {
+    .footer {
+        color: $dark-gray-1;
+    }
+
+    .inner {
+        border-top: 1px solid $dark-gray-4;
+    }
+}

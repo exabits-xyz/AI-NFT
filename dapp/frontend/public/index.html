@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en" data-kit-theme="default">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link
+            rel="icon"
+            type="image/png"
+            href="/resources/images/favicon.ico"
+        />
+        <title>
+            exaBITS AI Nft | A full-fledged NFT or Digital assets
+            marketplace
+        </title>
+        <style>
+            body {
+                margin: 0px;
+            }
+
+            .initial__loading {
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                z-index: 999999;
+                background-color: #009ef7;
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
+            }
+
+            .preloader-in {
+                position: relative;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+
+            .preloader-in:before,
+            .preloader-in:after {
+                content: "";
+                display: block;
+            }
+
+            .preloader-in .spinner-bar:before,
+            .preloader-in .spinner-bar:after {
+                content: "";
+                display: block;
+            }
+
+            @-webkit-keyframes rotation-top {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                20% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @keyframes rotation-top {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                20% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @-webkit-keyframes rotation-right {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                20% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                40% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @keyframes rotation-right {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                20% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                40% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @-webkit-keyframes rotation-bottom {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                40% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                60% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @keyframes rotation-bottom {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                40% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                60% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @-webkit-keyframes rotation-left {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                60% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            @keyframes rotation-left {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                60% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                    opacity: 0.5;
+                }
+
+                80% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 1;
+                }
+
+                100% {
+                    -webkit-transform: rotate(360deg);
+                    transform: rotate(360deg);
+                    opacity: 0.5;
+                }
+            }
+
+            .preloader-in .bar {
+                width: 0;
+                height: 0;
+                border: 25px solid transparent;
+                position: absolute;
+                top: 0;
+                left: 0;
+                -webkit-transform: rotate(0deg);
+                -ms-transform: rotate(0deg);
+                transform: rotate(0deg);
+                opacity: 0.5;
+            }
+
+            .preloader-in .bar-top {
+                border-top: 25px solid #0058ae;
+                -webkit-animation: rotation-top 3.6s linear 0s infinite;
+                animation: rotation-top 3.6s linear 0s infinite;
+            }
+
+            .preloader-in .bar-right {
+                border-right: 25px solid #0058ae;
+                -webkit-animation: rotation-right 3.6s linear 0s infinite;
+                animation: rotation-right 3.6s linear 0s infinite;
+            }
+
+            .preloader-in .bar-bottom {
+                border-bottom: 25px solid #0058ae;
+                -webkit-animation: rotation-bottom 3.6s linear 0s infinite;
+                animation: rotation-bottom 3.6s linear 0s infinite;
+            }
+
+            .preloader-in .bar-left {
+                border-left: 25px solid #0058ae;
+                -webkit-animation: rotation-left 3.6s linear 0s infinite;
+                animation: rotation-left 3.6s linear 0s infinite;
+            }
+        </style>
+        <!-- Load google font ================================================== -->
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: ["Manrope:200,300,400,500,600,700,800"] },
+            };
+
+            (function () {
+                var wf = document.createElement("script");
+                wf.src =
+                    ("https:" == document.location.protocol
+                        ? "https"
+                        : "http") +
+                    "://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js";
+                wf.type = "text/javascript";
+                wf.async = "true";
+                var s = document.getElementsByTagName("script")[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
+    </head>
+
+    <body>
+        <noscript>
+            <strong
+                >We're sorry but vue doesn't work properly without JavaScript
+                enabled. Please enable it to continue.</strong
+            >
+        </noscript>
+        <div id="app">
+            <div class="initial__loading">
+                <div class="preloader-in">
+                    <div class="bar bar-top"></div>
+                    <div class="bar bar-right"></div>
+                    <div class="bar bar-bottom"></div>
+                    <div class="bar bar-left"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

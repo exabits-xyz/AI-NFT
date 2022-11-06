@@ -1,0 +1,197 @@
+@import "mixins.scss";
+
+:root {
+    --kit-color-primary: #4b7cf3;
+    --kit-font-family: "Mukta", sans-serif;
+}
+
+html {
+    font-size: 12px;
+    @media (max-width: $sm-max-width) {
+        font-size: 12px;
+    }
+}
+
+body {
+    font-size: 12px;
+    line-height: 1.5;
+    font-family: $base-font-family;
+    background: $body;
+    color: $bodyText;
+    overflow-x: hidden;
+    position: relative;
+    font-variant: normal;
+    font-feature-settings: normal;
+}
+
+a {
+    text-decoration: none;
+    color: $text;
+    @include transition-color();
+    &:hover,
+    &:active,
+    &:focus {
+        color: $blue;
+        text-decoration: none;
+    }
+}
+
+input {
+    outline: none !important;
+    font-family: $base-font-family;
+    color: $text;
+}
+
+button,
+input {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+textarea {
+    appearance: none !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: $black;
+}
+
+svg {
+    vertical-align: initial;
+    overflow: auto;
+}
+
+// dark theme
+[data-kit-theme="dark"] {
+    body {
+        background: $dark-gray-5;
+        color: $dark-gray-1;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: $dark-gray-1;
+    }
+
+    a {
+        color: $dark-gray-1;
+        &:hover,
+        &:active,
+        &:focus {
+            color: $blue;
+            text-decoration: none;
+        }
+    }
+}
+.dl-item {
+    padding-bottom: 10px;
+    margin-bottom: 0px;
+    dt {
+        float: left;
+        width: 120px;
+        line-height: 1.5;
+    }
+    dd {
+        margin-left: 120px;
+        line-height: 1.5;
+        div {
+            display: inline;
+        }
+    }
+}
+
+i.number {
+    display: inline-block;
+    font-weight: 500;
+    font-family: "Cerebri Sans,sans-serif";
+    font-style: normal;
+    padding-right: 5px;
+    word-break: break-all;
+    text-decoration: none;
+}
+
+.full-height {
+    height: 100%;
+    @media (max-width: $sm-max-width) {
+        max-height: rem(240);
+        margin-bottom: rem(15);
+    }
+}
+.select-option-user {
+    %number-text {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    span {
+        display: inline-block;
+        line-height: 32px;
+        font-size: 12px;
+        i {
+            padding-right: 3px;
+        }
+        &.name {
+            width: 150px;
+            @extend %number-text;
+            font-weight: 500;
+        }
+        &.phone {
+            width: 130px;
+            @extend %number-text;
+        }
+    }
+    &:nth-of-type(2n) {
+        background-color: rgba(#efefef, 0.6);
+    }
+}
+.img-fluid {
+    height: 100%;
+    max-width: 100%;
+    max-height: 200px;
+}
+.title-header {
+    width: 100%;
+}
+.mb-7 {
+    margin-bottom: 1.75rem !important;
+}
+.ms-auto {
+    margin-left: auto !important;
+}
+
+.padding-top {
+    padding-top: 50px;
+
+    @include breakpoint(lg) {
+        padding-top: 70px;
+    }
+}
+
+.jsoneditor-poweredBy {
+    display: none !important;
+}
+.padding-bottom {
+    padding-bottom: 45px;
+
+    @include breakpoint(lg) {
+        padding-bottom: 65px;
+    }
+}
+
+.pb-120 {
+    padding-bottom: 40px;
+
+    @include breakpoint(lg) {
+        padding-bottom: 60px;
+    }
+}

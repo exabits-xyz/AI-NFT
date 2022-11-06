@@ -1,0 +1,893 @@
+//create item
+.create-nft {
+    background: $white;
+    border-radius: 10px;
+
+    .create-nft-form {
+        input,
+        select,
+        textarea {
+            background: $body;
+            color: $desc-color;
+            border: 1px solid $border-color;
+            &:focus {
+                box-shadow: none;
+                border-color: rgba($theme-color, $alpha: 0.4);
+            }
+        }
+
+        textarea {
+            height: 200px;
+        }
+    }
+
+    .thumbnail {
+        &-box {
+            width: 100%;
+            min-height: rem(260);
+            background-color: #efefef;
+            position: relative;
+        }
+        &-pics {
+            position: absolute;
+            width: auto;
+            height: auto;
+            left: 2px;
+            top: 2px;
+            right: 2px;
+            bottom: 2px;
+            z-index: 1;
+            overflow: hidden;
+            img {
+                display: block;
+                width: 100%;
+                min-height: 100%;
+            }
+        }
+        &-loading {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 12;
+            text-align: center;
+            padding: 50px 0px;
+            background-color: rgba(0, 0, 0, 0.8);
+            .ant-spin,
+            .ant-spin-dot-item {
+                color: #fff;
+            }
+            .ant-spin-dot-item {
+                background-color: #fff;
+            }
+        }
+        &-uploadBtn {
+            position: absolute;
+            width: auto;
+            height: 30px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            z-index: 10;
+            text-align: right;
+        }
+    }
+    .upload-cropper {
+        &-box {
+            width: 100%;
+        }
+    }
+    .upload-select-box {
+        width: 100%;
+        height: 32px;
+        overflow: hidden;
+    }
+    .upload-dragger-plugin {
+        position: relative;
+        width: 100%;
+        height: 170px;
+        overflow: hidden;
+        background: #fafafa;
+        .upload-cropper-thumb {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            width: 280px;
+            bottom: 5px;
+            img {
+                width: auto;
+                height: 100%;
+            }
+        }
+        .ant-upload.ant-upload-drag {
+            background: transparent;
+        }
+    }
+    .upload-dragger {
+        &-box {
+            position: relative;
+            width: 100%;
+            height: 170px;
+            overflow: hidden;
+            .ant-upload-list {
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+                width: 100%;
+                height: 40px;
+                z-index: 0;
+                padding: 5px 10px;
+            }
+        }
+        &-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            z-index: 1;
+            &.cropper-wrap {
+                .ant-upload-list {
+                    display: none;
+                }
+                &.has-picture {
+                    .ant-upload-drag-container {
+                        padding-left: 300px;
+                    }
+                }
+            }
+        }
+    }
+
+    .upload-dragger {
+        &-box {
+            position: relative;
+            width: 100%;
+            height: 174px;
+            border: 2px dashed rgba($theme-color, $alpha: 0.5);
+            border-radius: 15px;
+            background: rgba($body, $alpha: 0.15);
+            transition: $transition;
+            text-align: center;
+            overflow: hidden;
+            .ant-upload-list {
+                position: absolute;
+                z-index: 11;
+            }
+            .thumbnail-loading {
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                right: 0px;
+                bottom: 0px;
+                z-index: 10;
+                background-color: #f9f9fb;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+            }
+            .custom-upload {
+                display: inline-block;
+                width: 160px;
+                background: $theme-color;
+                padding: 1rem 1rem;
+                border-radius: 10px;
+                transition: $transition;
+                margin-top: 20px;
+                font-weight: 500;
+                color: $white;
+            }
+            .ant-upload.ant-upload-drag {
+                border: none;
+                border-radius: 15px;
+            }
+            &:hover {
+                .custom-upload {
+                    background: darken($theme-color, $amount: 5);
+                    transform: translateY(-6px);
+                }
+            }
+
+            .upload-btn {
+                background: #1454ec;
+                color: #fff;
+                border-radius: 5px;
+                padding: 15px 20px;
+                width: 100%;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: bold;
+                font-size: 14px;
+                cursor: pointer;
+                text-align: center;
+            }
+            .upload-result {
+                height: 100%;
+                position: absolute;
+                left: 0px;
+                top: 0px;
+                z-index: 12;
+                width: 100%;
+                button {
+                    outline: none;
+                    background: none;
+                    border: none;
+                    cursor: pointer;
+                }
+            }
+            .upload-progress-tracker {
+                background: #ffffff linear-gradient(45deg, #f4edff, #efffef)
+                    left center/100% 100% no-repeat;
+                width: 100%;
+                height: 100%;
+                border-radius: 10px;
+                padding: 25px;
+                color: #565252;
+                position: relative;
+                transition: background 0.3s ease;
+                .tracker-container {
+                    position: relative;
+                    width: 100%;
+                }
+                h3 {
+                    margin: 0;
+                    font-size: 1.6em;
+                    font-weight: normal;
+                    color: #222;
+                    padding-bottom: 10px;
+                    i.number {
+                        font-style: normal;
+                        font-family: Arial, Helvetica, sans-serif;
+                        color: #ff0000;
+                        font-weight: bold;
+                    }
+                }
+                .upload-progress {
+                    margin: 10px 0 0;
+                    font-size: 0.8em;
+                    color: #617e8c;
+                    span {
+                        display: inline-block;
+                        padding-right: 24px;
+                        font-size: 0.85rem;
+                        margin-right: 1rem;
+                        font-family: Arial, Helvetica, sans-serif;
+                        font-weight: bold;
+                        &.success-count {
+                            background: url("/resources/images/upload/completed-indicator.svg")
+                                right center no-repeat;
+                            background-size: auto 80%;
+                        }
+                        &.failed-count {
+                            background: url("/resources/images/upload/failed-indicator.svg")
+                                right center no-repeat;
+                            background-size: auto 80%;
+                        }
+                        &.paused-count {
+                            background: url("/resources/images/upload/paused-indicator.svg")
+                                right center no-repeat;
+                            background-size: auto 80%;
+                        }
+                    }
+                }
+                .maximize-btn {
+                    position: absolute;
+                    right: 25px;
+                    top: 35px;
+                    width: 20px;
+                    height: 20px;
+                    overflow: hidden;
+                    text-indent: 9999999px;
+                    background: url("/resources/images/upload/expand.svg")
+                        center center no-repeat;
+                    opacity: 0.8;
+                    transition: opacity 0.3s ease;
+                    &.expanded {
+                        background: url("/resources/images/upload/collapse.svg")
+                            center center no-repeat;
+                    }
+                    &:hover {
+                        opacity: 1;
+                    }
+                }
+                .uploads-progress-bar {
+                    position: absolute;
+                    left: 0;
+                    top: 105px;
+                    height: 2px;
+                    background: #607d8b;
+                    opacity: 1;
+                    transition: width 0.3s ease, opacity 0.3s ease;
+                }
+                .file-progress-wrapper {
+                    height: 0;
+                    opacity: 0;
+                    overflow: hidden;
+                    transition: height 0.3s ease, opacity 0.3s ease;
+                    border-top: 1px solid #ddd;
+                    margin-top: 15px;
+                }
+                .file-progress {
+                    display: flex;
+                    align-items: center;
+                    width: 100%;
+                    .file-actions {
+                        display: none;
+                        min-width: 45px;
+                        // display: flex;
+                        justify-content: center;
+                        button {
+                            height: 50px;
+                            text-align: center;
+                            padding: 36px 0 0;
+                            font-size: 0.7em;
+                            color: #607d8b;
+                            width: 40px;
+                            min-width: 40px;
+                            margin-left: 5px;
+                            &.clear-btn {
+                                background: url("/resources/images/upload/clear.svg")
+                                    center 42%/20px 20px no-repeat;
+                            }
+                            &.retry-btn {
+                                background: url("/resources/images/upload/retry.svg")
+                                    center 42%/20px 20px no-repeat;
+                            }
+                            &.cancel-btn {
+                                background: url("/resources/images/upload/paused.svg")
+                                    center 42%/20px 20px no-repeat;
+                            }
+                            &.resume-btn {
+                                background: url("/resources/images/upload/resume.svg")
+                                    center 42%/20px 20px no-repeat;
+                            }
+                        }
+                    }
+                    .file-details {
+                        flex: 1;
+                        margin: 5px 5px 5px 0;
+                        p {
+                            padding-right: 30px;
+                            position: relative;
+                            align-items: center;
+                            font-size: 0.8em;
+                            height: 25px;
+                            color: #565656;
+                            margin: 10px 0;
+                            .file-name {
+                                white-space: nowrap;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                margin-top: 4px;
+                                display: inline-block;
+                                flex: 1;
+                                /* 40px off because file status takes max 35px wide plus 5 of gap */
+                                max-width: calc(100% - 40px);
+                            }
+                            .file-ext {
+                                margin-top: 4px;
+                                color: #9ba7ca;
+                            }
+                            .status {
+                                overflow: hidden;
+                                text-indent: -9999999px;
+                                height: 20px;
+                                width: 20px;
+                                margin-right: 10px;
+                                float: left;
+
+                                &.uploading {
+                                    text-indent: unset;
+                                    width: 35px;
+                                    position: absolute;
+                                    right: 0;
+                                    top: 5px;
+                                    text-align: right;
+                                    margin-right: 0;
+                                }
+                                &.pending {
+                                    background: url("/resources/images/upload/pending.svg")
+                                        center center/100% 100% no-repeat;
+                                }
+                                &.failed {
+                                    background: url("/resources/images/upload/failed.svg")
+                                        center center/100% 100% no-repeat;
+                                }
+                                &.completed {
+                                    background: url("/resources/images/upload/completed.svg")
+                                        center center/100% 100% no-repeat;
+                                }
+                                &.paused {
+                                    background: url("/resources/images/upload/paused-indicator.svg")
+                                        center center/100% 100% no-repeat;
+                                    right: auto;
+                                    left: 0;
+                                }
+                            }
+                        }
+
+                        &::after {
+                            content: "";
+                            width: 100%;
+                            height: 2px;
+                            background: #ddd;
+                            display: block;
+                            position: absolute;
+                            bottom: 5px;
+                            left: 0;
+                            z-index: 1;
+                        }
+                        .progress-bar {
+                            height: 2px;
+                            background: #607d8b;
+                            position: absolute;
+                            bottom: 5px;
+                            left: 0;
+                            z-index: 2;
+                        }
+
+                        .upload-btn {
+                            background: #1454ec;
+                            color: #fff;
+                            border-radius: 5px;
+                            padding: 15px 20px;
+                            width: 100%;
+                            text-transform: uppercase;
+                            letter-spacing: 1px;
+                            font-weight: bold;
+                            font-size: 14px;
+                            cursor: pointer;
+                            text-align: center;
+                        }
+                        .upload-result {
+                            min-height: 360px;
+                        }
+                        .upload-progress-tracker {
+                            background: #ffffff
+                                linear-gradient(45deg, #f4edff, #efffef) left
+                                center/100% 100% no-repeat;
+                            width: 100%;
+                            border-radius: 10px;
+                            box-shadow: 0 5px 35px #cdcdcd;
+                            padding: 25px;
+                            color: #565252;
+                            position: relative;
+                            transition: background 0.3s ease;
+                            .tracker-container {
+                                position: relative;
+                                width: 100%;
+                            }
+                            h3 {
+                                margin: 0;
+                                font-size: 1.6em;
+                                font-weight: normal;
+                                color: #222;
+                                padding-bottom: 10px;
+                                i.number {
+                                    font-style: normal;
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    color: #ff0000;
+                                    font-weight: bold;
+                                }
+                            }
+                            .upload-progress {
+                                margin: 10px 0 0;
+                                font-size: 0.8em;
+                                color: #617e8c;
+                                span {
+                                    display: inline-block;
+                                    padding-right: 24px;
+                                    font-size: 0.85rem;
+                                    margin-right: 1rem;
+                                    font-family: Arial, Helvetica, sans-serif;
+                                    font-weight: bold;
+                                    &.success-count {
+                                        background: url("/resources/images/upload/completed-indicator.svg")
+                                            right center no-repeat;
+                                        background-size: auto 80%;
+                                    }
+                                    &.failed-count {
+                                        background: url("/resources/images/upload/failed-indicator.svg")
+                                            right center no-repeat;
+                                        background-size: auto 80%;
+                                    }
+                                    &.paused-count {
+                                        background: url("/resources/images/upload/paused-indicator.svg")
+                                            right center no-repeat;
+                                        background-size: auto 80%;
+                                    }
+                                }
+                            }
+
+                            .maximize-btn {
+                                display: none;
+                                position: absolute;
+                                right: 25px;
+                                top: 35px;
+                                width: 20px;
+                                height: 20px;
+                                overflow: hidden;
+                                text-indent: 9999999px;
+                                background: url("/resources/images/upload/expand.svg")
+                                    center center no-repeat;
+                                opacity: 0.8;
+                                transition: opacity 0.3s ease;
+                                &.expanded {
+                                    background: url("/resources/images/upload/collapse.svg")
+                                        center center no-repeat;
+                                }
+                                &:hover {
+                                    opacity: 1;
+                                }
+                            }
+                            .uploads-progress-bar {
+                                position: absolute;
+                                left: 0;
+                                top: 105px;
+                                height: 2px;
+                                background: #607d8b;
+                                opacity: 1;
+                                transition: width 0.3s ease, opacity 0.3s ease;
+                            }
+                            .file-progress-wrapper {
+                                height: 0;
+                                opacity: 0;
+                                overflow: hidden;
+                                transition: height 0.3s ease, opacity 0.3s ease;
+                                border-top: 1px solid #ddd;
+                                margin-top: 15px;
+                            }
+                            .file-progress {
+                                display: flex;
+                                align-items: center;
+                                width: 100%;
+                                .file-actions {
+                                    min-width: 45px;
+                                    display: flex;
+                                    justify-content: center;
+                                    button {
+                                        height: 50px;
+                                        text-align: center;
+                                        padding: 36px 0 0;
+                                        font-size: 0.7em;
+                                        color: #607d8b;
+                                        width: 40px;
+                                        min-width: 40px;
+                                        margin-left: 5px;
+                                        &.clear-btn {
+                                            background: url("/resources/images/upload/clear.svg")
+                                                center 42%/20px 20px no-repeat;
+                                        }
+                                        &.retry-btn {
+                                            background: url("/resources/images/upload/retry.svg")
+                                                center 42%/20px 20px no-repeat;
+                                        }
+                                        &.cancel-btn {
+                                            background: url("/resources/images/upload/paused.svg")
+                                                center 42%/20px 20px no-repeat;
+                                        }
+                                        &.resume-btn {
+                                            background: url("/resources/images/upload/resume.svg")
+                                                center 42%/20px 20px no-repeat;
+                                        }
+                                    }
+                                }
+                                .file-details {
+                                    flex: 1;
+                                    margin: 5px 5px 5px 0;
+                                    p {
+                                        padding-right: 30px;
+                                        position: relative;
+                                        align-items: center;
+                                        font-size: 0.8em;
+                                        height: 25px;
+                                        color: #565656;
+                                        margin: 10px 0;
+                                        .file-name {
+                                            white-space: nowrap;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            margin-top: 4px;
+                                            display: inline-block;
+                                            flex: 1;
+                                            /* 40px off because file status takes max 35px wide plus 5 of gap */
+                                            max-width: calc(100% - 40px);
+                                        }
+                                        .file-ext {
+                                            margin-top: 4px;
+                                            color: #9ba7ca;
+                                        }
+                                        .status {
+                                            overflow: hidden;
+                                            text-indent: -9999999px;
+                                            height: 20px;
+                                            width: 20px;
+                                            margin-right: 10px;
+                                            float: left;
+
+                                            &.uploading {
+                                                text-indent: unset;
+                                                width: 35px;
+                                                position: absolute;
+                                                right: 0;
+                                                top: 5px;
+                                                text-align: right;
+                                                margin-right: 0;
+                                            }
+                                            &.pending {
+                                                background: url("/resources/images/upload/pending.svg")
+                                                    center center/100% 100%
+                                                    no-repeat;
+                                            }
+                                            &.failed {
+                                                background: url("/resources/images/upload/failed.svg")
+                                                    center center/100% 100%
+                                                    no-repeat;
+                                            }
+                                            &.completed {
+                                                background: url("/resources/images/upload/completed.svg")
+                                                    center center/100% 100%
+                                                    no-repeat;
+                                            }
+                                            &.paused {
+                                                background: url("/resources/images/upload/paused-indicator.svg")
+                                                    center center/100% 100%
+                                                    no-repeat;
+                                                right: auto;
+                                                left: 0;
+                                            }
+                                        }
+                                    }
+
+                                    &::after {
+                                        content: "";
+                                        width: 100%;
+                                        height: 2px;
+                                        background: #ddd;
+                                        display: block;
+                                        position: absolute;
+                                        bottom: 5px;
+                                        left: 0;
+                                        z-index: 1;
+                                    }
+                                    .progress-bar {
+                                        height: 2px;
+                                        background: #607d8b;
+                                        position: absolute;
+                                        bottom: 5px;
+                                        left: 0;
+                                        z-index: 2;
+                                    }
+                                }
+                            }
+                            &.expanded {
+                                background: #fff;
+                                .uploads-progress-bar {
+                                    opacity: 0;
+                                }
+                                .file-progress-wrapper {
+                                    height: auto;
+                                    opacity: 1;
+                                }
+                            }
+                        }
+                    }
+                }
+                &.expanded {
+                    background: #fff;
+                    .uploads-progress-bar {
+                        opacity: 0;
+                    }
+                    .file-progress-wrapper {
+                        height: auto;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+        &-wrapper {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    }
+
+    //item category field
+    .item-category-field {
+        h4 {
+            @extend %mb-20;
+        }
+
+        .item-cat-list {
+            gap: 10px;
+
+            .item-cat-btn {
+                background: $body;
+                border: 1px solid $border-color;
+                padding: 0.5rem 1rem;
+                border-radius: 5px;
+                @extend %c-pointer;
+                transition: $transition;
+                font-weight: 600;
+
+                &.active,
+                &:hover {
+                    background: $theme-color;
+                    border-color: transparent;
+                    color: $white;
+                }
+            }
+        }
+    }
+
+    //submit button
+    .submit-btn-field {
+        margin-top: 30px;
+        button {
+            background: $theme-color;
+            border: none;
+            color: $white;
+            height: 55px;
+            padding: 1.125rem 3rem;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: $transition;
+            font-size: 16px;
+            &:hover {
+                background: darken($theme-color, $amount: 8);
+            }
+        }
+    }
+}
+
+//Variation items
+.variation-content {
+    > p {
+        margin: auto;
+        margin-bottom: 40px;
+
+        @include breakpoint(lg) {
+            max-inline-size: 80%;
+        }
+    }
+}
+
+.variation-items {
+    @extend %flex;
+    @extend %justify-center;
+    gap: 5%;
+}
+
+.variation-item {
+    @extend %text-center;
+    @extend %of-hidden;
+    min-inline-size: 40%;
+    border: 2px solid $white;
+    border-radius: 10px;
+    background-color: rgba($white, $alpha: 0.4);
+    padding: 8% 5%;
+    box-shadow: 0 0 10px rgba($black, $alpha: 0.2);
+
+    img {
+        transition: $transition;
+    }
+
+    &:hover {
+        border-color: rgba($theme-color, $alpha: 0.5);
+
+        img {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px rgba($black, $alpha: 0.1));
+        }
+    }
+}
+
+.upload-title,
+.maximize-btn {
+    display: none;
+}
+.upload-error-box {
+    color: #ff0000;
+    font-size: 14px;
+}
+.upload-error-tip {
+    position: absolute;
+    background-color: #ff0000;
+    font-size: 14px;
+    line-height: 26px;
+    color: #fff;
+    width: 100%;
+    height: 26px;
+    bottom: 0px;
+    z-index: 20;
+}
+
+.vue-cropper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 600px;
+    box-sizing: border-box;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    direction: ltr;
+    touch-action: none;
+    text-align: left;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQAQMAAAAlPW0iAAAAA3NCSVQICAjb4U/gAAAABlBMVEXMzMz////TjRV2AAAACXBIWXMAAArrAAAK6wGCiw1aAAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAABFJREFUCJlj+M/AgBVhF/0PAH6/D/HkDxOGAAAAAElFTkSuQmCC");
+}
+.cropper-box,
+.cropper-box-canvas,
+.cropper-drag-box,
+.cropper-crop-box,
+.cropper-face {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    user-select: none;
+}
+.cropper-box-canvas img {
+    position: relative;
+    text-align: left;
+    user-select: none;
+    transform: none;
+    max-width: none;
+    max-height: none;
+}
+.cropper-box {
+    overflow: hidden;
+}
+.cropper-move {
+    cursor: move;
+}
+.cropper-crop {
+    cursor: crosshair;
+}
+.cropper-modal {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.cropper-view-box {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    outline: 1px solid #39f;
+    outline-color: rgba(51, 153, 255, 0.75);
+    user-select: none;
+}
+.cropper-view-box img {
+    user-select: none;
+    text-align: left;
+    max-width: none;
+    max-height: none;
+}
+.cropper-face {
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    opacity: 0.1;
+}
+.crop-info {
+    position: absolute;
+    left: 0px;
+    min-width: 65px;
+    text-align: center;
+    color: white;
+    line-height: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    font-size: 12px;
+}
+.crop-line {
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+}
+.show-preview {
+    margin-top: 0px;
+}
