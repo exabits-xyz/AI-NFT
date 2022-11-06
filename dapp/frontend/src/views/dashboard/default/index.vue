@@ -17,7 +17,7 @@
                                 </h2>
                                 <p>
                                     Digital marketplace for crypto collectibles
-                                    and fon-Fungible tokens.
+                                    and non-fungible tokens.
                                 </p>
                                 <p>Powered by artificial intelligence</p>
                                 <div

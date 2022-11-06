@@ -18,8 +18,8 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-8">
                             <a-steps :current="currentStep">
-                                <a-step title="Step 1: AI Art Generator" />
-                                <a-step title="Step 2: Mine Art" />
+                                <a-step title="Step 1: Input" />
+                                <a-step title="Step 2: Mine by AI" />
                             </a-steps>
                         </div>
                     </div>
