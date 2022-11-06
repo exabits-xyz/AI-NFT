@@ -12,7 +12,7 @@ Team members come from Harvard, Princeton, UC Berkeley, UCSD, DCU, with experien
 
 ## Start
 
-### contract
+### Contract
 
 Deploy contact
 
