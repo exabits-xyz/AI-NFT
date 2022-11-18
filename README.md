@@ -1,4 +1,4 @@
-# AI-NFT
+# Introduction
 
 exaBITS AI is an NFT-generation platform based on AI. It runs on exaBTIS Cloud - a physically decentralized computing platform powered by Ethereum.
 
